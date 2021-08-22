@@ -58,6 +58,7 @@ export default function TaskList() {
           id="outlined-basic"
           label="New task"
           variant="outlined"
+          autoComplete="off"
           value={inputValue}
           onKeyPress={(event) =>
             event.key === 'Enter' ? handleKeyPress(event) : undefined
