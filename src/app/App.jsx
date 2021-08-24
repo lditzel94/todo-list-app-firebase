@@ -64,7 +64,7 @@ export default class App extends React.Component {
               <TaskList currentUser={this.state.currentUser} />
             ) : (
               <div style={{ textAlign: 'center' }}>
-                <h1>Inicia sesión logi</h1>
+                <h1>Sign in to start</h1>
               </div>
             )}
           </Route>
