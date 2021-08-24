@@ -5,8 +5,9 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { Link as RouterLink } from 'react-router-dom'
 import { useStyles } from './Header.styles'
+import { auth } from '../../firebase/firebase.utils'
 
-export default function Header() {
+export default function Header({ currentUser }) {
   const classes = useStyles()
 
   return (
@@ -18,9 +19,15 @@ export default function Header() {
               To do App
             </Typography>
           </Button>
-          <Button component={RouterLink} color="inherit" to="/signin">
-            Login
-          </Button>
+          {currentUser ? (
+            <Button color="inherit" onClick={() => auth.signOut()}>
+              Sign out
+            </Button>
+          ) : (
+            <Button component={RouterLink} color="inherit" to="/signin">
+              Sign in
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>
